@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let auditory1=["A_NAME",30,"CS"];
+       let auditory2=["B_NAME",20,"Biology"];
+       let arr=[auditory1,auditory2];
+       function AllAuditories(arr){
+        for (let index = 0; index < arr.length; index++) {
+            document.write(arr[index],"<br>");
+        }
+       }
+       function Facult(arr,facult)
+       {
+        for (let index = 0; index < arr.length; index++) {
+            if(arr[index].indexOf(facult)!=-1)
+        {
+            document.write(arr[index],"<br>")
+        }
+        }
+       }
+       function ValidAuditories(arr,facult,people)
+       {
+        for (let index = 0; index < arr.length; index++) {
+            if(arr[index].indexOf(facult)!=-1 && arr[index][1]>=people)
+        {
+            document.write(arr[index],"<br>")
+        }
+        }
+       }
+       function Sort(arr)
+       {
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = arr.length-1; j > i; j--)
+           {
+             if (arr[j-1][1] > arr[j][1]) {
+                [arr[j-1],arr[j]]=[arr[j],arr[j-1]]
+             }
+           }
+        }
+      }
+      function SortByName(arr)
+      {
+        for (let i = 0; i < arr.length; i++) {
+            let letter=0;
+          for (let j = arr.length-1; j > i; j--)
+           {
+             if (arr[j-1][0][letter] > arr[j][0][letter]) {
+                [arr[j-1],arr[j]]=[arr[j],arr[j-1]]
+             }
+             else if(arr[j-1][0][letter] == arr[j][0][letter])
+             {
+                letter++;
+             }
+           }
+        }
+      }
+       AllAuditories(arr);
+       document.write("<br>","<br>")
+       Facult(arr,"CS");
+       document.write("<br>","<br>")
+       ValidAuditories(arr,"CS",15);
+       document.write("<br>","<br>")
+       Sort(arr);
+       AllAuditories(arr);
+       document.write("<br>","<br>")
+       SortByName(arr);
+       AllAuditories(arr);
+    </script>
+</body>
+</html>
